@@ -1,0 +1,7 @@
+#! /bin/bash
+# This script tests: pamcut pnmpaste
+# Also requires:
+
+
+pamcut 50 40 100 70 testimg.ppm | \
+pnmpaste -replace - 50 40 testimg.ppm | cksum
