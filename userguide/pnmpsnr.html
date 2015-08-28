@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD><TITLE>Pnmpsnr User Manual</TITLE></HEAD>
+<BODY>
+<H1>pnmpsnr</H1>
+Updated: 02 June 2015
+<BR>
+<A HREF="#index">Table Of Contents</A>
+
+<H2>NAME</H2>
+
+pnmpsnr - compute the difference between two images (the PSNR)
+
+<H2 id="synopsis">SYNOPSIS</H2>
+
+<B>pnmpsnr</B>
+
+[<I>pnmfile1</I>]
+
+[<I>pnmfile2</I>]
+
+[<b>-rgb</b>]
+
+<P>Minimum unique abbreviations of options are acceptable.  You may use
+double hyphens instead of single hyphen to denote options.  You may use
+white space in place of the equals sign to separate an option name
+from its value.
+
+
+<H2 id="description">DESCRIPTION</H2>
+
+<p>This program is part of <a href="index.html">Netpbm</a>.
+
+<p><b>pnmpsnr</b> reads two PBM, PGM, or PPM files, or PAM equivalents, as
+input and prints the magnitude of difference between the two images as a peak
+signal-to-noise ratio (PSNR) This metric is typically used in image
+compression papers to rate the distortion between original and decoded image.
+
+<P>If the inputs are PBM or PGM, <B>pnmpsnr</B> prints the PSNR of the
+luminance only.  Otherwise, it prints the separate PSNRs of the
+luminance, and chrominance (Cb and Cr) components of the colors.
+
+<P>The PSNR of a given component is the ratio of the maximum mean square
+difference of component values that could exist between the two images (a
+measure of the information content in an image) to the actual mean square
+difference for the two subject images.  It is expressed as a decibel value.
+
+<P>The mean square difference of a component for two images is the
+mean square difference of the component value, comparing each pixel
+with the pixel in the same position of the other image.  For the
+purposes of this computation, components are normalized to the scale
+[0..1].
+
+<P>The maximum mean square difference is identically 1.
+
+<P>So the higher the PSNR, the closer the images are.  A luminance
+PSNR of 20 means the mean square difference of the luminances of the
+pixels is 100 times less than the maximum possible difference,
+i.e. 0.01.
+
+<p>Note that the word "peak" is a misnomer; there is no maximum
+involved; the metric is a mean.  But "peak signal to noise ratio" is
+for some reason the common term for this measurement.
+
+
+<H2 id="options">OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>-rgb</B>
+
+<DD>This option causes <b>pnmpsnr</b> to compare the red, green, and blue
+components of the color rather than the luminance and chrominance components.
+It has no effect on a grayscale image.
+
+<p>This option was new in Netpbm 10.71 (June 2015).
+
+</dl>
+
+
+<H2 id="seealso">SEE ALSO</H2>
+
+<B><A HREF="pnm.html">pnm</A></B>
+
+<HR>
+<H2 id="index">Table Of Contents</H2>
+<UL>
+<LI><A HREF="#synopsis">SYNOPSIS</A>
+<LI><A HREF="#description">DESCRIPTION</A>
+<LI><A HREF="#options">OPTIONS</A>
+<LI><A HREF="#seealso">SEE ALSO</A>
+</UL>
+</BODY>
+</HTML>
